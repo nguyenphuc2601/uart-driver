@@ -1,0 +1,89 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"cwd": "${workspaceFolder}",
+			"executable": "./bin/executable.elf",
+			"name": "Debug with ST-Link",
+			"request": "launch",
+			"type": "cortex-debug",
+			"runToEntryPoint": "main",
+			"showDevDebugOutput": "none",
+			"servertype": "stlink"
+		},
+		{
+			"type": "cmake",
+			"request": "launch",
+			"name": "CMake: Configure project",
+			"cmakeDebugType": "configure",
+			"clean": false,
+			"configureAll": false
+		},
+		{
+			"name": "Launch Chrome",
+			"request": "launch",
+			"type": "chrome",
+			"url": "http://localhost:8080",
+			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"type": "cmake",
+			"request": "launch",
+			"name": "CMake: Configure project",
+			"cmakeDebugType": "configure",
+			"clean": false,
+			"configureAll": false
+		},
+		{
+			"name": "(gdb) Launch",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "enter program name, for example ${workspaceFolder}/a.out",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"name": "Cortex Debug",
+			"cwd": "${workspaceFolder}",
+			"executable": "./build/${workspaceFolderBasename}.elf",
+			"request": "launch",
+			"interface": "swd",
+			"type": "cortex-debug",
+			"runToEntryPoint": "main",
+			"servertype": "stlink",
+			"svdFile": "./tools/STM32F411.svd",
+			"liveWatch": {
+				"enabled": true,
+				"samplesPerSecond": 1
+			},
+			"preLaunchCommands": [
+				"set mem inaccessible-by-default off",
+				"set verbose on"
+			],
+			"preLaunchTask": "Build program",
+			"device": "STM32F411RETx",
+			"liveWatch.enabled": false,
+			"runToMain": true,
+			"showDevDebugOutput": "raw"
+		},
+	]
+}

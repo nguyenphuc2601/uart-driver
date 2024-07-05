@@ -1,0 +1,9 @@
+[wrap-file]
+directory = Unity
+
+[provide]
+unity_lib = unity_lib
+unity_inc = unity_inc
+unity_dep = unity_dep
+gen_test_runner = gen_test_runner
+

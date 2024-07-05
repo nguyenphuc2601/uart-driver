@@ -1,0 +1,31 @@
+{
+	"C_Cpp.errorSquiggles": "disabled",
+	"files.associations": {
+		"bit": "c",
+		"compare": "c",
+		"condition_variable": "c",
+		"cstddef": "c",
+		"forward_list": "c",
+		"list": "c",
+		"string": "c",
+		"optional": "c",
+		"limits": "c",
+		"memory": "c",
+		"new": "c",
+		"ranges": "c",
+		"functional": "c",
+		"*.clang-format": "c",
+		"stm32f4xx_hal.h": "c"
+	},
+	"cortex-debug.armToolchainPrefix": "/opt/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi",
+	"editor.formatOnSave": true,
+	"cmake.sourceDirectory": "/home/rtr/sample/project-name/subprojects/Unity",
+	"sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+	"C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+		"clang-diagnostic-error",
+		"clang-diagnostic-error",
+		"clang-diagnostic-error",
+		"clang-diagnostic-error"
+	],
+	"C_Cpp.dimInactiveRegions": false,
+}

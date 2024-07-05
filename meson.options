@@ -1,0 +1,6 @@
+option('build_test', type : 'feature', value : 'disabled', description : 'build the test source code in the test folder')
+option('freertos', type : 'feature', value : 'disabled', description : 'Include FreeRTOS into main code')
+option('mbedtls', type : 'feature', value : 'disabled', description : 'Include mbedtls into main code')
+option('libjpeg', type : 'feature', value : 'disabled', description : 'Include libjpeg into main code')
+option('fatfs', type : 'feature', value : 'disabled', description : 'Include fatfs into main code')
+option('debug_opt', type : 'string', value : '-g3', description : 'Set debug optimazation')

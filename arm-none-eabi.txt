@@ -1,0 +1,100 @@
+[constants]
+com_path = '/opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/bin/'
+com_prefix = com_path +'arm-none-eabi-'
+
+
+[binaries]
+c       = com_prefix + 'gcc'
+cpp     = com_prefix + 'g++'
+ld      = com_prefix + 'ld'
+ar      = com_prefix + 'ar'
+as      = com_prefix + 'as'
+size    = com_prefix + 'size'
+objdump = com_prefix + 'objdump'
+objcopy = com_prefix + 'objcopy'
+strip   = com_prefix + 'strip'
+gdb     = com_prefix + 'gdb'
+terminal= 'x-terminal-emulator'
+openocd = '/usr/bin/openocd'
+
+
+
+exe_wrapper = 'meson_exe_wrapper.sh'
+
+
+
+[properties]
+cpu_name = 'STM32F411RETx'
+
+cpu_series = 'F4'
+
+c_macro = [  
+          '-DDEBUG',
+          '-DSTM32F411xE',
+          '-DUSE_FULL_LL_DRIVER',
+          '-DMBEDTLS_CONFIG_FILE="mbedtls_config.h"', 
+          '-DUSE_HAL_DRIVER'
+        ]
+
+c_arg = [
+          '-ffunction-sections',
+          '-fdata-sections',
+          '-Wswitch-enum',
+          '-fstack-usage',
+          '--specs=nano.specs',
+          '-mfpu=fpv4-sp-d16',
+          '-mfloat-abi=hard',
+          '-mthumb',
+        ]
+
+asm_args = [
+	  '-falign-functions=4',
+	  '-x',
+	  'assembler-with-cpp',
+	  '--specs=nano.specs',
+	  '-mfpu=fpv4-sp-d16', 
+	  '-mfloat-abi=hard', 
+	  '-mthumb'
+	]
+
+c_link_arg = [
+	          
+	      '-DDEBUG',
+		  '--specs=nosys.specs',
+		  '-Wl,--gc-sections',
+          '-Wl,--print-memory-usage',
+		  '-static',
+		  '--specs=nano.specs', 
+		  '-mfpu=fpv4-sp-d16', 
+		  '-mfloat-abi=hard',
+		  '-mthumb', 
+		  '-Wl,--start-group', 
+		  '-lc',
+		  '-lm',
+		  '-Wl,--end-group'
+	      ]
+
+sizeof_int = 4
+sizeof_wchar_t = 2
+sizeof_void* = 4
+
+alignment_char = 1
+alignment_void* = 4
+alignment_double = 8
+
+
+
+
+[host_machine]
+system = 'none'
+cpu_family = 'arm'
+cpu = 'cortex-m4'
+endian = 'little'
+
+[build_machine]
+system = 'none'
+cpu_family = 'arm'
+cpu = 'cortex-m4'
+endian = 'little'
+
+

@@ -1,0 +1,6 @@
+[submodule "subprojects/Unity"]
+	path = subprojects/Unity
+	url = https://github.com/ThrowTheSwitch/Unity
+[submodule "subprojects/Cpputest"]
+	path = subprojects/Cpputest
+	url = https://github.com/cpputest/cpputest.git
